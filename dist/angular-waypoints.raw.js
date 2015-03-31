@@ -1,8 +1,8 @@
 /**
- * Zumba(r) Angular Waypoints v1.0.1 - 2014-10-13
+ * Zumba(r) Angular Waypoints v1.0.2 - 2015-03-31
  * An AngularJS module for working with jQuery Waypoints
  *
- * Copyright (c) 2014 Zumba (r)
+ * Copyright (c) 2015 Zumba (r)
  * Licensed MIT
  */
 /**
@@ -114,13 +114,16 @@ var zumWaypoint = function zumWaypoint(WaypointService) {
 			up : '@',
 			down : '@',
 			offset : '@',
-			waypoints : '=?zumWaypoint'
+			waypoints : '=?zumWaypoint',
+            context : '@'
 		},
 		link : function zumWaypointLink(scope, element, attrs, ctrl) {
 			var callback = $.proxy(ctrl.processWaypoint, ctrl);
+
 			element.waypoint({
 				handler : WaypointService.getHandlerSync(scope, callback),
-				offset : scope.offset || 0
+				offset : scope.offset || 0,
+                context : $(scope.context || 'window')
 			});
 		}
 	};
