@@ -5,13 +5,16 @@ var zumWaypoint = function zumWaypoint(WaypointService) {
 			up : '@',
 			down : '@',
 			offset : '@',
-			waypoints : '=?zumWaypoint'
+			waypoints : '=?zumWaypoint',
+            context : '@'
 		},
 		link : function zumWaypointLink(scope, element, attrs, ctrl) {
 			var callback = $.proxy(ctrl.processWaypoint, ctrl);
+
 			element.waypoint({
 				handler : WaypointService.getHandlerSync(scope, callback),
-				offset : scope.offset || 0
+				offset : scope.offset || 0,
+                context : $(scope.context || 'window')
 			});
 		}
 	};

@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/zumba/angular-waypoints.git"
+    "url": "git://github.com/wespeke/angular-waypoints.git"
   },
   "keywords": [
     "angular",
